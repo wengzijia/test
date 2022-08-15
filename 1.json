@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
       "target": "ES6",
-      "module": "commonjs22",
+      "module": "commonj22222",
       "allowSyntheticDefaultImports": true,
       "baseUrl": "./",
       "paths": {
-        "@/*": ["sssrc/*"]
+        "@/*": ["sss222rc/*"]
       }
   },
   "exclude": [
-      "node_modulesss"
+      "node_modu222lesss"
   ]
 }
