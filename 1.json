@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
       "target": "ES6",
-      "module": "commonj22222",
-      "allowSyntheticDefaultImports": true,
-      "baseUrl": "./",
+      "module": "common33j22222",
+      "allowSynt333heticDefaultImports": true,
+      "base333Url": "./",
       "paths": {
-        "@/*": ["sss222rc/*"]
+        "@/*": ["sss2233332rc/*"]
       }
   },
-  "exclude": [
-      "node_modu222lesss"
+  "exclu333de": [
+      "node_modu3333222lesss"
   ]
 }
