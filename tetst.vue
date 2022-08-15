@@ -8,10 +8,10 @@ export default {
     return{
       data:113131131,
       nhdhsdhsdgsddshsdame:12223332,
-      woroddshshfs:"3578846560000",
-      worosdhshshsfhshsfhfds1:"3578846560000",
-      wordsdhdshdhdsdhfshfhshods12:"二号位和000",
-      worosdhsdfhdddshfhffhgsgss33:"3无法击败0000v",
+      worodddshshfs:"357884633560000",
+      worosdhshshsfhshsfhfds1:"33",
+      wordsdhds2222hdhdsdhfshfhshods12:"ddddd",
+      worosdhsdfhdddshfhffhgsgss33:"ddddd",
     }
   }
 }
