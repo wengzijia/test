@@ -8,11 +8,21 @@ export default {
     return{
       data:113131131,
       nhdhsdhsdgsddshadgsdgsdgdsdame:12223332,
-      woroddgsdgsdgdshshfs:"357884633560000",
+      woroddgfhfsdgsdgdshshfs:"357884633560000",
       worosdhshshsfhshsfhfds1:"33",
-      wordsdhds2222sdshdhdsdhfshfhshods12:"ddddd",
+      woragsdshdsdhds2222sdshdhdsdhfshfhshods12:"ddddd",
       dsgdsgsdg:"ddddd",
+      dsgdshfhfhfhfgsdg:"ddddd",
+      dsgdshhffgsdg:"ddddd",
+     gfhfddsgdsgsdg:"ddddd",
+      fhfhfh:"ddddd",
+      dsgdsgsdg:"ddddd",
+      hffhhf:"ddddd",
+      dsgdsgsdg:"ddddd",
+      hfhfs:"ddddd",
+      dsgdsghdfhfdfhsdg:"ddddd",
     }
+      dsgdsgsdg:"ddddd",g
   }
 }
 </script>
