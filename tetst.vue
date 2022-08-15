@@ -6,8 +6,8 @@
 export default {
   data(){
     return{
-      name:123,
-      worods:"357889"
+      name:12223332,
+      worods:"357884656"
     }
   }
 
