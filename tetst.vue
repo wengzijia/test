@@ -7,11 +7,11 @@ export default {
   data(){
     return{
       data:113131131,
-      nhdhsdhsdgsddshsdame:12223332,
-      worodddshshfs:"357884633560000",
+      nhdhsdhsdgsddshadgsdgsdgdsdame:12223332,
+      woroddgsdgsdgdshshfs:"357884633560000",
       worosdhshshsfhshsfhfds1:"33",
-      wordsdhds2222hdhdsdhfshfhshods12:"ddddd",
-      worosdhsdfhdddshfhffhgsgss33:"ddddd",
+      wordsdhds2222sdshdhdsdhfshfhshods12:"ddddd",
+      dsgdsgsdg:"ddddd",
     }
   }
 }
