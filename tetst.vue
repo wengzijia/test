@@ -34,9 +34,7 @@ export default {
       dsgdsghdfhfdfhsdg:"ddddd",
       dsgdsghdfhfdfhsdg:"ddddd",
     }
-      dsgdsgsdg:"ddddd",g
   }
-6666  }
 }
 </script>
 
