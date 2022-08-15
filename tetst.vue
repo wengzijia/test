@@ -16,10 +16,10 @@ export default {
       worhdffdsfsafasjogsdgsdsdhsdfhddgsgss33:"3无法击败0000v",
       gsdsfsafgg:"3gsgsdg无法击败0000v",
       dgsdgdfsafsafssgdg:"3无法击败0000v",
-      worosdhsdgsdgsfsffsasdgdssdfhddgsgssgdggds33:"3无法击败0000v",
-      worosdhsdgsdgsdsfsfsfgdssagdgddfhddgsgssgdggds33:"3无法击败0000v",
+      worosdhsdgdgdgdsdgsfsffsasdgdssdfhddgsgssgdggds33:"3无法击败0000v",
+      worosdhdgdsggdgdsdgsdgsdsfsfsfgdssagdgddfhddgsgssgdggds33:"3无法击败0000v",
       gdgdsfsffsdg:"3无法击败0000v",
-      worosdsgdsgdsgddhsdgsdgsdgdssdfhddgsgssgdggds3111fsffss3:"3无法击败0000v",
+      worosdsgdsgdsgddhsdgsdgsdgdssdfhddgsgssgdggds3gdsgsgfs111fsffss3:"3无法击败0000v",
     }
   }
 }
