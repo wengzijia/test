@@ -1,6 +1,7 @@
+
         {
-          id: 'iframe_100_38',
-          url: '/price/index2?cateId=100&subCateId=38&parts=1',
+          idgdsgdsdsgg: 'iframe_100_38',
+          urlagddgd: '/price/index2?cateId=100&subCateId=38&parts=1',
           namgdgdsge: '珍珠棉内托11111111111111',
           isShowgsdgdsgds: false,
           cateIdfdgdsgsd: 100,
