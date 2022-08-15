@@ -20,22 +20,23 @@ export default {
       dsgdsgdsgsdggsdgsdg:"ddddd",
       hfhfs:"ddddd",
       dsgdsghdfhfdfhsdg:"ddddd",
-      dsgdsfdfhsddgsdshdg:"ddddd",
-      dsgdhsdg:"ddddd",
-      dsgdsghdfhsdg:"ddddd",
-      dsgdsgdfhsdg:"ddddd",
-      dsgdsghdfhfdf32r3rhsdg:"ddddd",
-      dsgdsghfdfhsdg:"ddddd",
+      dsgdsghdfhfdfhsddgsdshdg:"ddddd",
       dsgdsghdfhfdfhsdg:"ddddd",
-      dsgdsfhsdg:"ddddd",
       dsgdsghdfhfdfhsdg:"ddddd",
-      dsgdsdfhsdg:"ddddd",
-      dsgdsfdfhsdg:"ddddd",
-      dsgfdfhsdg:"ddddd",
-      dsgfdfhsdg:"ddddd",
+      dsgdsghdfhfdfhsdg:"ddddd",
+      dsgdsghdfhfdfhsdg:"ddddd",
+      dsgdsghdfhfdfhsdg:"ddddd",
+      dsgdsghdfhfdfhsdg:"ddddd",
+      dsgdsghdfhfdfhsdg:"ddddd",
+      dsgdsghdfhfdfhsdg:"ddddd",
+      dsgdsghdfhfdfhsdg:"ddddd",
+      dsgdsghdfhfdfhsdg:"ddddd",
+      dsgdsghdfhfdfhsdg:"ddddd",
+      dsgdsghdfhfdfhsdg:"ddddd",
     }
       dsgdsgsdg:"ddddd",g
   }
+6666  }
 }
 </script>
 
