@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
-      "target": "ES6",
-      "module": "common33j22222",
-      "allowSynt333heticDefaultImports": true,
-      "base333Url": "./",
-      "paths": {
-        "@/*": ["sss2233332rc/*"]
+      "targetfdd": "EdddS6",
+      "modulddde": "common33j22222",
+      "allowSddddynt333heticDefaultImports": true,
+      "base3dddd33Url": "./",
+      "patdddhs": {
+        "@/*": ["sss22ddd33332rc/*"]
       }
   },
-  "exclu333de": [
-      "node_modu3333222lesss"
+  "exclu33ddd3de": [
+      "node_modudd3333222lesss"
   ]
 }
