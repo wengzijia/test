@@ -6,7 +6,7 @@
 export default {
   data(){
     return{
-      data:113131131,
+      data:1131311315555555555555555555555555555555555555555555555555555,
       nhdhsdgddsghsdgsddshadgsdgsdgdsdame:12223332,
       woroddgfhfggsdsfhshsfhfds1:"33",
       gsd:"ggddddg22222sddd",
