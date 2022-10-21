@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.js"></script>
+        <!-- <script type="text/javascript" src="jquery-1.12.1.js"></script> -->
+    </head>
+    <body>
+        <a href="https://blog.csdn.net/csmzl/article/details/53995969" target="_blank">js中单击和双击事件的区分</a>
+        <input type="button" id="testBtn" value="单击我或者双击我">  
+        <script language="javascript">  
+            var timeoutID= null;
+            $("#testBtn").on("click",function(){
+                clearTimeout(timeoutID);
+                timeoutID= window.setTimeout(function(){
+                   console.log('单击');
+                }, 200);
+            });
+            $("#testBtn").on("dblclick",function(){
+                clearTimeout(timeoutID);
+                console.log('双击');
+            });
+        </script>  
+    </body>
+</html>

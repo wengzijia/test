@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+      "targetfdd": "EdddS6",
+      "modulddde": "common33j22222",
+      "allowSddddynt333heticDefaultImports": true,
+      "base3dddd33Url": "./",
+      "patdddhs": {
+        "@/*": ["sss22ddd33332rc/*"]
+      }
+  },
+  "exclu33ddd3de": [
+      "node_modudd3333222lesss"
+  ]
+}
