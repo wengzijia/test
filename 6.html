@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="progress">
+        <div style="width:300px; height:20px;  background:#fff; border-radius:3px; float:left; font-size:12px;">
+        @*进度条柱*@
+            <div style="width: 100%; border: 1px solid #f7f6f6; height: 10px; border-radius: 5px; ">
+                <div style="float:left; height:10px; background:#ffa437; border-radius:3px;" id="txtprogressbarwidth">
+
+                </div>
+                <div style="float:left; height:10px;  background:#f4d467; border-radius:3px;" id="txtprogressbar2width">
+                </div>
+                <div style="float:left; height:10px; background:#96e6cc; border-radius:3px;" id="txtprogressbar3width">
+                </div>
+            </div>
+            @*进度条文本*@
+            <div style="width:100%; float:left;">
+                <div style="float:left;  line-height:30px; color:#ffa437; text-align:center;" id="txtprogressbar">
+                   
+
+                </div>
+                <div style="float:left; line-height:30px; color:#f4d467; text-align:center;" id="txtprogressbar1">
+                   
+                </div>
+                <div style="float:left;min-width:30px ; line-height:30px; color:#96e6cc; text-align:center;" id="txtprogressbar2">
+                  
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+<script>
+    
+                    var WindowWidth = 300;//设置进度条所占比例的长度
+                var fist = (row.JGPercent / 100) * WindowWidth;//(row.JGPercent / 100) 是进度条所占的百分比，在*WindowWidth是这个百分比所展示的长度
+                var sencond = (row.JGPercent2 / 100) * WindowWidth;//同上
+                var third = (row.JGPercent3 / 100) * WindowWidth;//同上
+                document.getElementById("txtprogressbarwidth").style.width = fist + "px";//进度条在div中显示相应的长度
+                document.getElementById("txtprogressbar2width").style.width = sencond + "px";
+                document.getElementById("txtprogressbar3width").style.width = third + "px";
+                document.getElementById("txtprogressbar").style.width = fist + "px";//这是文本对应进度条的长度
+                document.getElementById("txtprogressbar1").style.width = sencond + "px";
+                document.getElementById("txtprogressbar2").style.width = third + "px";
+                // var value = $('#txtprogressbar').progressbar('getValue');
+                document.getElementById('txtprogressbar').innerHTML = row.JGPercent;//每段对应的进度条的字段
+                document.getElementById('txtprogressbar1').innerHTML = row.JGPercent2;
+                document.getElementById('txtprogressbar2').innerHTML = row.JGPercent3;
+
+</script>
+</html>
