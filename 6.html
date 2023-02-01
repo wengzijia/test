@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .gradient-text {
+        color: transparent;
+        background: -webkit-linear-gradient(30deg, #fafafa 25%, #f8effa 50%, #f5f2ea 75%, #04fa46 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: auto;
+        animation: gradientText 300s infinite linear;
+        -webkit-animation: gradientText 300s infinite linear;
+    }
+
+    @keyframes gradientText {
+        0% {
+            background-position: 0;
+        }
+
+        100% {
+            background-position: 28000px;
+        }
+    }
+</style>
+
+<body>
+    <h1 class="gradient-text">哈哈哈哈哈哈哈</h1>
+</body>
+
+</html>

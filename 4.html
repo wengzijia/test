@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+      * {
+          margin: 0;
+          padding: 0;
+      }
+      .wrapper {
+          width: 25vw;
+          height: 50vh;
+          background-color: #0cc;
+          text-align: center;
+      }
+
+      .box {
+          width: 5vw;
+          height: 10vh;
+          background-color: #BFA;
+          display: inline-block;
+          vertical-align: middle;
+          margin: 0 auto;
+      }
+
+      .wrapper::after {
+          display: inline-block;
+          vertical-align: middle;
+          content: "";
+          height: 100%;
+          width: 0;
+      }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="box"></div>
+</div>
+</body>
+</html>

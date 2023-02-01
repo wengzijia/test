@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>跑马灯</title>
+    <style type="text/css">
+        #app {
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="run">应援</button>
+        <button @click="stop">暂停</button>
+        <h3>{{ msg }}</h3>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.0/dist/vue.min.js"></script>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            msg: "飞兔小哥，飞兔小哥，我爱飞兔小哥~~~",
+            timer: null // 定时器
+        },
+        methods: {
+            run() {
+                // 如果timer已经赋值就返回
+                if (this.timer) return;
+
+                this.timer = setInterval(() => {
+                    // msg分割为数组
+                    var arr = this.msg.split('');
+                    // shift删除并返回删除的那个，push添加到最后
+                    // 把数组第一个元素放入到最后面
+                    arr.push(arr.shift());
+                    // arr.join('')吧数组连接为字符串复制给msg
+                    this.msg = arr.join('');
+                }, 100)
+            },
+            stop() {
+                //清除定时器
+                clearInterval(this.timer);
+                //清除定时器之后，需要重新将定时器置为null
+                this.timer = null;
+            }
+        }
+    })
+</script>
+
+</html>
