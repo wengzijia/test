@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .g-container {
+    position: relative;
+    width: 300px;
+    height: 100px;
+    background: red;
+    border: 1px solid #277f9e;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.g-inner {
+    position: absolute;
+    width: 150px;
+    height: 50px;
+    background: #fee6e0;
+    bottom: 0;
+    border-radius: 0 20px 0 20px;
+    transform: perspective(40px) scaleX(1.4) scaleY(1.5) rotateX(20deg) translate(-10px, 0);
+    transform-origin: 50% 100%;
+}
+.g-inner::before {
+    content: "";
+    position: absolute;
+    right: -10px;
+    width: 10px;
+    height: 10px;
+    top: 40px;
+    background: radial-gradient(circle at 100% 0, transparent, transparent 9.5px, #fee6e0 10px, #fee6e0);
+}
+.g-after {
+    position: absolute;
+    width: 150px;
+    height: 50px;
+    background: #6ecb15;
+    bottom: 49px;
+    right: 0;
+    border-radius: 20px 0 20px 0;
+    transform: perspective(40px) scaleX(1.4) scaleY(-1.5) rotateX(20deg) translate(14px, 0);
+    transform-origin: 53% 100%;
+}
+.g-after::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 40px;
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle at 0 0, transparent, transparent 9.5px, #6ecb15 10px, #6ecb15);
+}
+.g-inner-text,.g-after-text {
+  position: absolute;
+  width: 150px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+.g-inner-text {
+  top: 50%;
+  left: 0;
+}
+.g-after-text {
+  top: 50%;
+  right: 0;
+}
+</style>
+<body>
+  <div class="g-container">
+    <div class="g-inner"></div>
+    <div class="g-after"></div>
+    <div class="g-inner-text">选项卡1</div>
+    <div class="g-after-text">选项卡2</div>
+  </div>
+</body>
+</html>

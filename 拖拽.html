@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+
+    <style>
+      .dragdiv {
+        width: 100px;
+
+        height: 100px;
+
+        background-color: bisque;
+
+        -webkit-user-drag: element;
+      }
+
+      .files {
+        width: 200px;
+
+        height: 200px;
+
+        background-color: rgba(0, 255, 255, 0.376);
+
+        margin-top: 100px;
+      }
+
+      .fileshover {
+        background-color: rgba(0, 255, 255, 0.979);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div draggable="true" class="dragdiv">我是文件1</div>
+
+    <div class="files">
+      <p>文件夹</p>
+
+      拖动文件名称：
+    </div>
+
+    <script>
+      const draggable = document.querySelector(".dragdiv");
+
+      const files = document.querySelector(".files");
+
+      // 开始拖拽事件
+
+      draggable.addEventListener("dragstart", (event) => {
+        const data = event.target.innerText;
+
+        event.dataTransfer.setData("name", data);
+      });
+
+      // 添加dragover事件处理程序
+
+      files.addEventListener("dragover", (event) => {
+        event.target.classList.add("fileshover");
+
+        event.preventDefault();
+      });
+
+      // 添加dragleave事件处理程序
+
+      files.addEventListener("dragleave", (event) => {
+        event.target.classList.remove("fileshover");
+      });
+
+      // 添加drop事件处理程序
+
+      files.addEventListener("drop", (event) => {
+        const data = event.dataTransfer.getData("name");
+
+        const text = document.createTextNode(data);
+
+        files.appendChild(text);
+
+        event.target.classList.remove("fileshover");
+      });
+    </script>
+  </body>
+</html>

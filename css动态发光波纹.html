@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 动态发光波纹</title>
+    <!-- 引入 ionicons 字体图标库 -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        /* 设置 body 的样式 */
+        body {
+            height: 100vh;
+            margin: 0;
+            /* 设置外边距为 0 */
+            display: flex;
+            /* 设置弹性布局 */
+            justify-content: center;
+            /* 水平居中 */
+            align-items: center;
+            /* 垂直居中 */
+            gap: 9rem;
+            /* 设置子元素之间的间距 */
+            background: #333
+                /* 设置背景颜色为黑色 */
+        }
+
+        /* 设置链接的样式 */
+        .pulse ion-icon {
+            font-size: 35px;
+            /* 设置字体大小 */
+            position: absolute;
+            /* 设置绝对定位 */
+            padding: 7px;
+            /* 设置内边距 */
+        }
+
+        /* 设置链接和波纹的样式 */
+        .pulse {
+            width: 3rem;
+            /* 设置链接的宽度 */
+            color: #fff;
+            /* 设置字体颜色为白色 */
+            transition: all .5s ease;
+            /* 设置过渡效果 */
+            background: #35D1E6;
+            /* 设置背景颜色为蓝色 */
+        }
+
+        .pulse,
+        .pulse::before,
+        .pulse::after {
+            content: "";
+            /* 设置伪元素的内容为空 */
+            display: grid;
+            /* 设置网格布局 */
+            grid-area: 1/1;
+            /* 设置元素占据整个网格 */
+            aspect-ratio: 1;
+            /* 设置宽高比为 1:1 */
+            border-radius: 50%;
+            /* 设置圆形边框半径 */
+            box-shadow: 0 0 0 0 #35D1E633;
+            /* 设置波纹的阴影 */
+            animation: pulsing 3s linear infinite;
+            /* 设置动画效果 */
+        }
+
+        /* 鼠标悬停链接时的样式 */
+        .pulse:hover,
+        .pulse:focus {
+        animation: none;
+        /* 取消动画效果 */
+        background: #35D1E633;
+        /* 设置背景颜色为深蓝色 */
+        color: #ffffff99;
+        /* 设置字体颜色为半透明白色 */
+        opacity: 0.5;
+        /* 设置不透明度为 0.5 */
+        transition: all 0.5s ease-in-out;
+        /* 设置过渡效果 */
+        }
+
+        .pulse:hover::before,
+        .pulse:focus::before,
+        .pulse:hover::after,
+        .pulse:focus::after {
+            animation: none;
+            /* 取消动画效果 */
+            opacity: 0.5;
+            /* 设置不透明度为 0.5 */
+            transition: all 0.5s ease-in-out;
+            /* 设置过渡效果 */
+        }
+
+        /* 设置 pulsing 动画的关键帧 */
+        @keyframes pulsing {
+            to {
+                box-shadow: 0 0 0 6rem #0000;
+                /* 设置波纹的阴影效果 */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 创建三个带有波纹效果的链接 -->
+    <a href="#" class="pulse">
+        <ion-icon name="finger-print-outline"></ion-icon>
+    </a>
+    <!-- filter: hue-rotate(120deg) 使用滤镜效果 从而阴影也会发生改变--> 
+    <a href="#" class="pulse" style="filter: hue-rotate(120deg);">
+        <ion-icon name="radio-outline"></ion-icon>
+    </a>
+    <a href="#" class="pulse" style="filter:grayscale()">
+        <ion-icon name="ribbon-outline" ;></ion-icon>
+    </a>
+</body>
+
+</html>

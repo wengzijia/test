@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="../view/public/element/index.css">
+    <link rel="stylesheet" href="../view/bgm/css/base.css" />
+    <script src="../view/public/js/jquery.min.js"></script>
+    <script src="../view/public/vue/vue.min.js"></script>
+    <script src="../view/public/element/index.js"></script>
+
+</head>
+
+<body>
+    <div id="app" v-cloak>
+                <el-checkbox class="f16" :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选 </el-checkbox>
+                <el-checkbox class="f16" :indeterminate="isIndeterminate" v-model="cancelAll" @change="handleCancalAllChange">取消全选 </el-checkbox>
+                <el-checkbox-group class="check_all_item" v-model="checkedOptions" @change="handleCheckedChange">
+                    <template v-for="item in dataList" :key="item.id">
+                        <el-checkbox :label="item.name" border class="check_item"></el-checkbox>
+                    </template>
+                </el-checkbox-group>
+
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data() {
+            return {
+                checkAll: false, // 全选
+                cancelAll:false, // 取消全选
+                isIndeterminate:false,
+                checkedOptions: [],
+                allElection: [], // 全选
+                selectionArr: [], // 选中要传给后台的数据 对象
+                dataList:[
+                    {id:1,name:"仓库仓库仓库仓库"},
+                    {id:2,name:"4仓库仓库仓库仓库234仓库仓库仓库仓库23"},
+                    {id:3,name:"4仓库仓库仓库仓库234仓库仓库仓库仓库234仓库仓库仓库仓库23"},
+                    {id:4,name:"4仓库仓库仓库仓库23"},
+                ]
+            }
+        },
+        mounted(){
+            this.allChecked();
+            this.defaultCheckSelection();
+        },
+        methods: {
+            defaultCheckSelection(){ // 初始化 默认全部选中
+                this.checkedOptions = this.allElection;
+                let checkedCount = this.checkedOptions.length;
+                this.checkAll = checkedCount === this.dataList.length;
+                this.isIndeterminate = checkedCount > 0 && checkedCount < this.dataList.length;
+                this.getChecked(this.checkedOptions);
+            },
+ 
+            allChecked() { // 全选数组
+                this.allElection = [];
+                for (var i = 0; i < this.dataList.length; i++) {
+                    this.allElection.push(this.dataList[i].name)
+                }
+            },
+            getChecked(selectionArr) { // 获取选中的对象
+                this.selectionArr = [];
+                for (var i = 0; i < this.dataList.length; i++) {
+                    for (var j = 0; j < selectionArr.length; j++) {
+                        if (selectionArr[j] === this.dataList[i].name) {
+                            this.selectionArr.push(this.dataList[i])
+                        }
+                    }
+                }
+            },
+            handleCheckAllChange(val) { // 全选
+                this.allChecked();
+                this.checkedOptions = val ? this.allElection : [];
+                this.isIndeterminate = false;
+                this.cancelAll = false;
+                this.getChecked(this.checkedOptions);
+                console.log(this.selectionArr)
+            },
+            handleCancalAllChange(val){// 取消全选
+                this.checkAll = false;
+                this.cancelAll = true;
+                this.checkedOptions = [];
+                this.selectionArr = [];
+                console.log(this.selectionArr)
+            },
+            handleCheckedChange(value) { // 单个选中
+                let checkedCount = value.length;
+                if(checkedCount === this.dataList.length){
+                    this.checkAll = true
+                    this.cancelAll = false
+                }else{
+                    this.checkAll = false
+                    this.cancelAll = false
+                }
+                this.getChecked(value);
+                console.log(this.selectionArr)
+            }
+        }
+    })
+</script>
+
+</html>

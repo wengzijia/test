@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #canvas-container {
+      background-color: aqua;
+    }
+    #selection-box {
+      background: rgba(0, 0, 255, 0.2);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="canvas-container" style="position: relative; width: 1000px; height: 600px;">
+    <div id="selection-box" style="position: absolute; border: 2px solid black; display: none;"></div>
+  </div>
+
+  <script>
+    const canvasContainer = document.getElementById("canvas-container");
+    const selectionBox = document.getElementById("selection-box");
+    let isDragging = false;
+    let startX, startY, endX, endY;
+
+    canvasContainer.addEventListener("mousedown", (e) => {
+      isDragging = true;
+      startX = e.clientX - canvasContainer.offsetLeft;
+      startY = e.clientY - canvasContainer.offsetTop;
+    });
+
+    canvasContainer.addEventListener("mousemove", (e) => {
+      if (isDragging) {
+        endX = e.clientX - canvasContainer.offsetLeft;
+        endY = e.clientY - canvasContainer.offsetTop;
+        selectionBox.style.display = "block";
+        selectionBox.style.left = Math.min(endX, startX) + "px";
+        selectionBox.style.top = Math.min(endY, startY) + "px";
+        selectionBox.style.width = Math.abs(endX - startX) + "px";
+        selectionBox.style.height = Math.abs(endY - startY) + "px";
+      }
+    });
+
+    canvasContainer.addEventListener("mouseup", (e) => {
+      isDragging = false;
+      selectionBox.style.display = "none";
+      // Add code here to select the elements within the rectangle
+    });
+  </script>
+</body>
+
+</html>

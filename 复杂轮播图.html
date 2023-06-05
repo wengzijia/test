@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>轮播页面</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      #wrap {
+        height: 500px;
+        width: 1260px;
+        border: 1px solid #eee;
+        margin: 0 auto;
+        position: relative;
+        perspective: 800px; /* 景深 */
+        transform-style: preserve-3d; /* 让我的元素成3D在舞台上呈现 */
+      }
+      .wrap-item {
+        position: absolute;
+        height: 250px;
+        width: 20%;
+        /* border: 1px solid #000; */
+        top: 5%;
+
+        -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left
+              bottom, from(transparent), to(rgba(250, 250, 250, 0.5)));
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform-origin: 50% 50% -1000px;
+
+        transition: linear 0.5s;
+        left: 40%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap"></div>
+  </body>
+
+  <script>
+    /**
+     *
+     * @param {any[]} arr 需要被操作的数组
+     * @param {*} times
+     * @returns
+     */
+    const rollTimes = (arr = [], times = 1) => {
+      // 异常参数处理
+      if (!Array.isArray(arr)) {
+        console.error(
+          "rollTimes(any[], number) 入参错误！ 应该是 array 类型，但是收到一个",
+          typeof arr,
+          "类型。"
+        );
+        return;
+      }
+
+      // 深拷贝数据，避免对源数据造成影响
+      let result = JSON.parse(JSON.stringify(arr));
+
+      /* 如果滚动次数为0，返回源数据的拷贝体，即本方法可以实现单层数据的深拷贝 */
+      if (times === 0) {
+        result = result;
+        /* 如果滚动次数小于0，则向左滚动，即第1个变成最后一个，其他依次向左移动一个 */
+      } else if (times < 0) {
+        for (let i = 0; i > times; i--) {
+          result.push(result.shift());
+        }
+        /* 如果滚动次数大于0，则向右滚动，即最后一个变成第一个，其他依次向左移动一个 */
+      } else {
+        for (let i = 0; i < times; i++) {
+          result.unshift(result.pop());
+        }
+      }
+
+      return result;
+    };
+
+    class LoopEvent {
+      constructor(id, arr, styleList) {
+        this.$wrap = document.getElementById(id);
+        this.dataList = arr;
+        this.styleList = styleList;
+        this.wrapList = [];
+        this.initWrap();
+      }
+
+      initWrap() {
+        this.initItems();
+        this.setStyles();
+      }
+
+      setStyles() {
+        this.wrapList.forEach((item, i) => {
+          Object.keys(this.styleList[0]).forEach((s) => {
+            item.style[s] = this.styleList[i][s];
+          });
+        });
+      }
+
+      initItems() {
+        console.log(this.dataList);
+        this.dataList.forEach((ele) => {
+          const item = document.createElement("div");
+          item.className = "wrap-item";
+          item.style.backgroundImage = 'url("https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d2deefc62bc64674b3982388648305ea~tplv-k3u1fbpfcp-zoom-crop-mark:1512:1512:1512:851.png")';
+          this.$wrap.appendChild(item);
+          this.wrapList.push(item);
+        });
+      }
+
+      animate(type) {
+        this.styleList = type
+          ? rollTimes(this.styleList, -1)
+          : rollTimes(this.styleList, 1);
+        this.setStyles();
+      }
+    }
+
+    const wrapLoop = new LoopEvent(
+      "wrap",
+      [1, 2, 3, 4, 5, 6, 7].map((item) => ({
+        id: item,
+        image: `./static/img/${item}.jpg`,
+      })),
+      [
+        {
+          transform: "rotateY(-45deg)",
+        },
+        {
+          transform: "rotateY(-30deg)",
+        },
+        {
+          transform: "rotateY(-15deg)",
+        },
+        {
+          transform: "rotateY(0deg)",
+        },
+        {
+          transform: "rotateY(15deg)",
+        },
+        {
+          transform: "rotateY(30deg)",
+        },
+        {
+          transform: "rotateY(45deg)",
+        },
+      ]
+    );
+
+    const timer = setInterval(() => {
+      wrapLoop.animate(false);
+    }, 2000);
+  </script>
+</html>

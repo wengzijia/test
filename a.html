@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .a {
+        white-space: nowrap;
+        animation: 10s loop linear infinite normal;
+        display: inline-block;
+        vertical-align: top;
+        font-size: 26rpx;
+        color: #333;
+    }
+
+    @keyframes loop {
+        0% {
+            transform: translateX(40px);
+        }
+
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+</style>
+
+<body>
+    <div class="a">哈过来接电话了管理局电力局了解到了广东省李经理监督管理局固定连接广东省</div>
+    <a style="pointer-events:none" @click="xx">44545645465</a>
+</body>
+<script>
+    function xx(){
+        console.log('执行了');
+    }
+</script>
+</html>

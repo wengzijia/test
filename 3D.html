@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    img {
+      --x: 10px;
+      --y: 20px;
+      clip-path: polygon(
+        var(--y) var(--y),
+        calc(100% - var(--y)) var(--y),
+        calc(100% - var(--y)) calc(100% - var(--y)),
+        var(--y) calc(100% - var(--y)),
+        0 calc(100% - var(--x) - var(--y)),
+        0 calc(var(--x) + var(--y))
+      );
+      margin: 30px;
+      transform: perspective(1000px) rotateY(40deg);
+      outline: var(--y) solid rgba(0, 0, 0, 0.4);
+      outline-offset: calc(-1 * var(--y));
+      padding: var(--y) var(--y) var(--y) 0;
+      transition: 1s all;
+      max-width: 100%;
+      display: block;
+      margin: auto;
+    }
+
+    img:hover {
+      transform: perspective(1000px) rotateY(0deg);
+      clip-path: polygon(
+        var(--y) var(--y),
+        calc(100% - var(--y)) var(--y),
+        calc(100% - var(--y)) calc(100% - var(--y)),
+        var(--y) calc(100% - var(--y)),
+        var(--y) calc(100% - var(--x) - var(--y)),
+        var(--y) calc(var(--x) + var(--y))
+      );
+    }
+  </style>
+  <body>
+    <img src="https://picsum.photos/id/1069/500/300" />
+  </body>
+</html>
