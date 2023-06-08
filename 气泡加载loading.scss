@@ -134,3 +134,10 @@ $count: 200;
     filter: blur(3px) contrast(3) hue-rotate(360deg);
   }
 }
+
+
+.a{
+ &:deep(.b){
+  background-color: red;
+ }
+}
