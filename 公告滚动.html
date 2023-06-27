@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>公告滚动</title>
+
+    <style>
+      div,
+      ul,
+      li,
+      span,
+      img {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        box-sizing: border-box;
+      }
+      .announce_content {
+        width: 60%;
+        height: 50px;
+        align-items: center;
+        color: #3a3a3a;
+        background-color: #ffe4ca;
+        display: flex;
+        box-sizing: border-box;
+        margin: 0 auto;
+        justify-content: space-between;
+      }
+
+      .announce_title {
+        padding: 0 20px;
+        height: 30px;
+        font-size: 14px;
+        border-right: 1px solid #fff;
+        align-items: center;
+      }
+
+      .marquee_box {
+        display: block;
+        position: relative;
+        width: 60%;
+        height: 30px;
+      }
+      .announce_box {
+        width: calc(100% - 130px);
+        overflow: hidden;
+        --delay: 0s;
+      }
+      .announce_list {
+        font-size: 16px;
+        display: inline-block;
+        white-space: nowrap;
+        animation: wordsLoop 8s var(--delay) cubic-bezier(0.1, 0.7, 1, 0.1)
+          infinite paused;
+        cursor: pointer;
+      }
+      .announce_list:hover {
+        /* 设置动画是否暂停 paused暂停*/
+        animation-play-state: paused;
+      }
+      @keyframes wordsLoop {
+        0% {
+          transform: translateX(400px);
+          -webkit-transform: translateX(400px);
+        }
+        95% {
+          opacity: 0.7;
+        }
+        100% {
+          transform: translateX(-100%);
+          -webkit-transform: translateX(-100%);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="announce_content">
+        <div class="announce_title">
+          <span>最新公告</span>
+        </div>
+        <div class="announce_box">
+          <ul class="announce_list" class="announce_top">
+            <li>
+              <span @mouseover="stopAnimate" @mouseout="startAnimate"
+                >{{announceOnce.title}}</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://www.jq22.com/jquery/vue.min.js"></script>
+    <script type="text/javascript">
+      const vm = new Vue({
+        el: "#app",
+        data: {
+          announceList: [], // 公告列表
+          announceOnce: {}, // 当前展示公告
+          timer: null, // 动画定时器
+          announceIndex: 0, // 当前公告下标
+          announceTime: 0, // 动画时间
+          animateStatus: true, //动画计时状态
+          announceBox: null, // 内容元素
+          delay: 0, // 延迟动画
+        },
+        created() {
+          this.getList();
+        },
+        methods: {
+          // 模拟获取后端数据
+          getList() {
+            setTimeout(() => {
+              this.announceList = [
+                {
+                  id: 1,
+                  title: "这是一条最新最新的公告信息",
+                },
+                {
+                  id: 2,
+                  title: "howcode真帅",
+                },
+              ];
+              this.announceOnce = this.announceList[this.announceIndex];
+              this.announceIndex++;
+              this.$nextTick(() => {
+                this.announceBox = document.querySelector(".announce_box");
+                this.init();
+              });
+            }, 200);
+          },
+          // 初始化定时器，定时切换公告下标
+          init() {
+            this.timer = setInterval(() => {
+              // 判断动画计时是否开启，如果不开启则不处理任何内容
+              if (!this.animateStatus) return;
+              // 重置下标
+              if (this.announceIndex >= this.announceList.length) {
+                this.announceIndex = 0;
+              }
+              // 8s切换公告内容
+              if (this.announceTime >= 8000) {
+                this.announceOnce = this.announceList[this.announceIndex];
+                this.announceIndex++;
+                // 重置计时器
+                this.announceTime = 0;
+                // 重置动画延迟
+                this.delay = 0;
+              }
+              this.announceTime += 10;
+              // 利用延迟实现复杂动画
+              this.delay += 0.01;
+              this.announceBox.style.setProperty("--delay", `-${this.delay}s`);
+            }, 10);
+          },
+          // 暂停动画
+          stopAnimate() {
+            this.animateStatus = false;
+          },
+          // 开启动画
+          startAnimate() {
+            this.animateStatus = true;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

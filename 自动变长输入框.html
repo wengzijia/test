@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动变长输入框</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    .input-container {
+        width: 200px;
+    }
+    .auto-expand {
+        display: inline;
+        word-break: break-all;
+        word-wrap: break-word;
+        border: 1px solid black;
+    }
+</style>
+<body>
+<div class="input-container">
+    你好，
+    <div class="auto-expand" contenteditable="true">111</div>
+    请下午来开会
+</div>
+</body>
+</html>
+

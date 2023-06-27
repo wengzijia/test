@@ -1,19 +1,10 @@
-let arr = ['1', '2', '3', '4'];
-let obj = {
-    '1': 'a',
-    '3': 'a',
-    '2': 'c'
-}
+let arr = ['1','2','4','3','5'];
+let arr2 = ['1','2','5'];
+let newArr = arr2.filter(item => arr.includes(item))
+console.log(newArr)
 
-let arr2 = [{ a: '1' }, { a: '3' }]
-arr = arr.filter(item => {
-    for (let key in obj) {
-        if (item == key) {
-            return false
-        }
-    }
-    return true
-}
-)
-
-console.log('arr', arr);
+let array = [{a:1},{a:2}]
+let newArray = array.map(item=>({
+    ...item,num:item.a + 1
+}))
+console.log(newArray);
