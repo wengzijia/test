@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .outer {
+      background-color: #8e44ad;
+      color: #fff;
+      font-family: "Roboto Mono", sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 350px;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    .counter-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      margin: 30px 50px;
+    }
+
+    .counter {
+      font-size: 60px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 580px) {
+      .outer {
+        flex-direction: column;
+      }
+    }
+  </style>
+  <body>
+    <h1>
+      <a
+        href="https://blog.csdn.net/m0_52040370/article/details/127258039?spm=1001.2100.3001.7377&utm_medium=distribute.pc_feed_blog_category.none-task-blog-classify_tag-5-127258039-null-null.nonecase&depth_1-utm_source=distribute.pc_feed_blog_category.none-task-blog-classify_tag-5-127258039-null-null.nonecase"
+        >链接</a
+      >
+    </h1>
+    <div class="outer">
+      <div class="counter-container">
+        <i class="iconfont icon-Basket-Ball" style="font-size: 50px"></i>
+        <div class="counter" data-set="37062000"></div>
+        <span>常规赛总得分</span>
+      </div>
+
+      <div class="counter-container">
+        <i class="iconfont icon-BasketballHoop" style="font-size: 50px"></i>
+        <div class="counter" data-set="10210"></div>
+        <span>常规赛总篮板</span>
+      </div>
+
+      <div class="counter-container">
+        <i class="iconfont icon-assistant" style="font-size: 50px"></i>
+        <div class="counter" data-set="10045"></div>
+        <span>常规赛总助攻</span>
+      </div>
+    </div>
+  </body>
+  <script>
+    // 数据的动态改变逻辑在这里咯！
+    // 1.首先就要获取到储存数据的三个div，然后通过foreach方法遍历我们获取的三个盒子，初始的分数是为0的，因此我们把盒子的innerText设置为了0(注意：这里的0是一个字符串)
+    // 2.随后定义一个更新数据的方法updateData,随后获取到我们之前自定义的数据，在这里有部分朋友看到+item.getAttribute(data-set)估计都懵逼了，为啥+符号在前面呢？+代表后面的数字为正数,相当于告诉编译器，即将赋值的数值类型为数字类型，不要把数字当作字符串去拼接
+    // 3.然后定义一个临时变量tmp，目的在于保存item.innerText中变化后的数值，接下来设置数据变化的速率在这里是除以了200，除以的数据约大，那么变化的速率越慢，反之则快
+    // 4.随后去做一个判断(让临时量与总量做对比)，如果临时量小于总量，就让临时量tmp与数据变化量changeData相加，做一个取整，如果不满足判断条件，直接渲染数据即可(这时的数据已经是最终的数据了,也就是我们的自定义数据)
+    // 5.实现数据的动态变化，最核心的还是定时器，在满足判断条件的作用域中启动定时器，传入回调函数updateData，实现1ms调用一次，数据变化看着很丝滑.
+    let counters = document.querySelectorAll(".counter"); //获取到三个counter盒子
+    counters.forEach((item) => {
+      item.innerText = "0"; //记录分数变化的变量，初始值为0
+
+      const updateData = () => {
+        const data = +item.getAttribute("data-set"); //获取到元素中绑定的数据
+        const tmp = +item.innerText; //临时变量保存变化一次的数据量
+
+        const changeData = data / 200; //设置改变的速率
+        if (tmp < data) {
+          //如果临时变量的值小于最终数据的值，那么就给元素进行数据相加
+          item.innerText = `${Math.ceil(tmp + changeData)}`; //值数相加，然后进行取整
+          setTimeout(updateData, 1); //定时器传入回调函数目的在于动态变化
+        } else {
+          item.innerText = data; //不满足条件后，证明得到了最终数据，直接渲染
+        }
+      };
+      updateData(); //调用函数，启动函数
+    });
+  </script>
+</html>
